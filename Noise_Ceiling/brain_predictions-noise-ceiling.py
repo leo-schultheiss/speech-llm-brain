@@ -5,7 +5,7 @@ import argparse
 import os
 import numpy as np
 #from utilsnew.utils import run_fmri_pair_subjects_crossval_ridge
-from npp import zscore
+from ridge_utils.npp import zscore
 from sklearn.kernel_ridge import KernelRidge
 from sklearn.model_selection import RandomizedSearchCV
 

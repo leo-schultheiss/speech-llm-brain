@@ -7,8 +7,8 @@ import numpy as np
 import logging
 import argparse
 from stimulus_utils import load_grids_for_stories, load_generic_trfiles
-from dsutils import make_word_ds, make_phoneme_ds
-from dsutils import make_semantic_model
+from ridge_utils.dsutils import make_word_ds, make_phoneme_ds
+from ridge_utils.dsutils import make_semantic_model
 from SemanticModel import SemanticModel
 from npp import zscore
 import os
