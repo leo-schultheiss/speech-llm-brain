@@ -12,7 +12,7 @@ import time as tm
 from transformers import AutoModel, AutoTokenizer
 import argparse
 import json
-#import pandas as pd
+import pandas as pd
 
 # In[13]:
 
