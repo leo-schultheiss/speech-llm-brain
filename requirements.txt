@@ -6,3 +6,16 @@ h5py
 transformers
 disvoice
 ridge-utils
+numpy
+scikit-learn
+matplotlib
+torch
+pandas
+cottoncandy
+ipdb
+torchaudio
+tqdm
+tables
+scipy
+nltk
+joblib
