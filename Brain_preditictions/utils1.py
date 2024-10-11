@@ -30,9 +30,9 @@ def load_data(fname, key=None):
         if key is None:
             for k in hf.keys():
                 print("{} will be loaded".format(k))
-                data[k] = hf[k].value
+                data[k] = hf[k][()]
         else:
-            data[key] = hf[key].value
+            data[key] = hf[key][()]
     return data
 
 
