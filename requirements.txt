@@ -5,3 +5,4 @@ pycortex
 h5py
 transformers
 disvoice
+ridge-utils
