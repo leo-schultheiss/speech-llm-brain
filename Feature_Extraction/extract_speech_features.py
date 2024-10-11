@@ -346,7 +346,8 @@ if __name__ == "__main__":
         model_config = json.load(f)[model_name]
         model_hf_path = model_config['huggingface_hub']
     print('Loading model', model_name, 'from the Hugging Face Hub...')
-    torch.cuda.set_device(0)
+    if torch.cuda.is_available():
+        torch.cuda.set_device(0)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = AutoModel.from_pretrained(model_hf_path, output_hidden_states=True, cache_dir='./')
     model = model.to(device)
