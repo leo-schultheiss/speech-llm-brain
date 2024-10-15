@@ -198,6 +198,7 @@ if __name__ == "__main__":
     print(args.input_file)
 
     word_ind_to_extract = -1
+    output_filename = args.output_file+'_'+args.model+'_'+str(args.sequence_length)
     if os.path.isfile(args.input_file):
         if '.npy' in args.input_file:
             words = np.load(args.input_file)
@@ -207,7 +208,7 @@ if __name__ == "__main__":
         else:
             words = open(args.input_file,'r').read().strip().split('\n')
         embeddings = get_model_layer_representations(args, np.array(words), word_ind_to_extract)
-        np.save(args.output_file+'_'+args.model+'_'+str(args.sequence_length), embeddings)
+        np.save(output_filename, embeddings)
     elif os.path.isdir(args.input_file):
         stories_files = {}
         for eachstory in sorted(os.listdir(args.input_file)):
@@ -217,4 +218,4 @@ if __name__ == "__main__":
             embeddings = get_model_layer_representations(args, np.array(words), word_ind_to_extract)
             stories_files[eachstory] = embeddings
 
-        np.save(args.output_file+'_'+args.model+'_'+str(args.sequence_length), stories_files)
+        np.save(output_filename, stories_files)
