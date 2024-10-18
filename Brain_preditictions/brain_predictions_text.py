@@ -66,10 +66,10 @@ if __name__ == "__main__":
     wordseqs = make_word_ds(grids, trfiles) # dictionary of {storyname : word DataSequence}
     phonseqs = make_phoneme_ds(grids, trfiles) # dictionary of {storyname : phoneme DataSequence}
 
-    eng1000 = SemanticModel.load("./english1000sm.hf5")
+    eng1000 = SemanticModel.load("./data/english1000sm.hf5")
     semanticseqs = dict() # dictionary to hold projected stimuli {story name : projected DataSequence}
     for story in allstories:
-        semanticseqs[story] = make_semantic_model(wordseqs[story], eng1000)
+        semanticseqs[story] = make_semantic_model(wordseqs[story], [eng1000], [985])
 
     storie_filenames = ['alternateithicatom', 'avatar', 'howtodraw', 'legacy',
                 'life', 'myfirstdaywiththeyankees', 'naked',
@@ -79,7 +79,7 @@ if __name__ == "__main__":
         print(allstories[i])
         semanticseqs[allstories[i]] = []
         for eachlayer in np.arange(num_layers):
-            temp = make_semantic_model(wordseqs[allstories[i]], eng1000)
+            temp = make_semantic_model(wordseqs[allstories[i]], [eng1000], [985])
             temp.data = np.nan_to_num(stimul_features.item()[storie_filenames[i]][eachlayer])
             semanticseqs[allstories[i]].append(temp)
 
